@@ -1,0 +1,27 @@
+# Define compiler
+CC=gcc
+
+# Define any compile-time flags
+CFLAGS=-Wall -g
+
+# Define the target executable
+TARGET=mycopy
+
+# Define source files
+SRC=mycopy.c
+
+# Define object files
+OBJ=$(SRC:.c=.o)
+
+# 'all' target builds the target executable
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+
+# 'clean' target for cleaning up compiled files
+clean:
+	rm -f $(TARGET) $(OBJ)
+
+# Phony targets are not files
+.PHONY: all clean
